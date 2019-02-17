@@ -9,6 +9,7 @@
   <body>
     <div id="app">
       <section class="row">
+        <!-- PLAYER HEALTH -->
         <div class="small-6 columns">
           <h1 class="text-center">YOU</h1>
           <div class="healthbar">
@@ -21,6 +22,8 @@
             </div>
           </div>
         </div>
+
+        <!-- MONSTER HEALTH -->
         <div class="small-6 columns">
           <h1 class="text-center">MONSTER</h1>
           <div class="healthbar">
@@ -34,17 +37,25 @@
           </div>
         </div>
       </section>
-      <section class="row controls">
+
+      <!-- START NEW GAME SECTION -->
+      <section v-if="!gameRunning" class="row controls">
         <div class="small-12 columns">
-          <button id="start-game">START NEW GAME</button>
+          <button @click="gameRunning = !gameRunning" id="start-game">
+            START NEW GAME
+          </button>
         </div>
       </section>
-      <section class="row controls">
+
+      <!-- PLAYER CONTROLS SECTION -->
+      <section v-else class="row controls">
         <div class="small-12 columns">
           <button id="attack">ATTACK</button>
           <button id="special-attack">SPECIAL ATTACK</button>
           <button id="heal">HEAL</button>
-          <button id="give-up">GIVE UP</button>
+          <button @click="gameRunning = !gameRunning" id="give-up">
+            GIVE UP
+          </button>
         </div>
       </section>
       <section class="row log">
