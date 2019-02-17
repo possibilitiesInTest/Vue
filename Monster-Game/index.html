@@ -41,7 +41,7 @@
       <!-- START NEW GAME SECTION -->
       <section v-if="!gameRunning" class="row controls">
         <div class="small-12 columns">
-          <button @click="gameRunning = !gameRunning" id="start-game">
+          <button @click="startGame" id="start-game">
             START NEW GAME
           </button>
         </div>
@@ -53,7 +53,7 @@
           <button id="attack">ATTACK</button>
           <button id="special-attack">SPECIAL ATTACK</button>
           <button id="heal">HEAL</button>
-          <button @click="gameRunning = !gameRunning" id="give-up">
+          <button @click="endGame" id="give-up">
             GIVE UP
           </button>
         </div>

@@ -10,5 +10,14 @@ new Vue({
 
   computed: {},
 
-  methods: {}
+  methods: {
+    startGame: function() {
+      this.gameRunning = true;
+      this.playerHealth = 100;
+      this.monsterHealth = 100;
+    },
+    endGame: function() {
+      this.gameRunning = false;
+    }
+  }
 });
