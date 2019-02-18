@@ -18,16 +18,28 @@ new Vue({
     },
 
     attack: function() {
-      this.monsterHealth -= this.calculateDamage(3, 10);
+      this.playerAttacks(3, 10);
+
+      this.monsterAttacks();
+    },
+
+    specialAttack: function() {
+      this.playerAttacks(10, 20);
+
+      this.monsterAttacks();
+    },
+
+    playerAttacks: function(min, max) {
+      this.monsterHealth -= this.calculateDamage(min, max);
       if (this.checkWin()) {
         return;
       }
+    },
 
+    monsterAttacks: function() {
       this.playerHealth -= this.calculateDamage(5, 12);
       this.checkWin();
     },
-
-    specialAttack: function() {},
 
     heal: function() {},
 
