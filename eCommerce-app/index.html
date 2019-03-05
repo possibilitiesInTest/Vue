@@ -50,7 +50,12 @@
                     <div class="number-in-stock">
                       {{ product.inStock }}
                     </div>
-                    <button class="btn btn-success">Add to cart</button>
+                    <button
+                      @click="addProductToCart(product)"
+                      class="btn btn-success"
+                    >
+                      Add to cart
+                    </button>
                   </div>
                 </div>
               </div>
