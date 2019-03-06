@@ -60,7 +60,7 @@ new Vue({
     addProductToCart: function(product) {
       this.cart.items.push({
         product: product,
-        quanitity: 1
+        quantity: 1
       });
 
       product.inStock--;
@@ -70,7 +70,7 @@ new Vue({
     cartTotal: function() {
       var total = 0;
 
-      this.cart.items.forEach(function() {
+      this.cart.items.forEach(function(item) {
         total += item.quantity * item.product.price;
       });
       return total;
