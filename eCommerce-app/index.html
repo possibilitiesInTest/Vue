@@ -15,7 +15,9 @@
           id="top-navigation"
           class="well well-sm flex flex-row align-center"
         >
-          <a href="#"><strong>E-commerce Inc.</strong></a>
+          <a href="#" @click.prevent="isShowingCart = false"
+            ><strong>E-commerce Inc.</strong></a
+          >
 
           <div class="text-right pull-right cart-info">
             <span class="stats">
@@ -29,11 +31,13 @@
               in cart, totalling
               {{ cartTotal | currency }}
             </span>
-            <button class="btn btn-primary">View Cart</button>
+            <button @click="isShowingCart = true" class="btn btn-primary">
+              View Cart
+            </button>
           </div>
         </nav>
 
-        <div id="products" class="row list-group">
+        <div v-if="!isShowingCart" id="products" class="row list-group">
           <div v-for="product in products" class="item col-xs-4">
             <div class="thumbnail">
               <img
@@ -75,6 +79,10 @@
               </div>
             </div>
           </div>
+        </div>
+        <div v-else>
+          <h1>Cart</h1>
+          <p>The cart will be displayed here.</p>
         </div>
       </div>
     </div>
