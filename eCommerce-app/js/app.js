@@ -74,6 +74,10 @@ new Vue({
         total += item.quantity * item.product.price;
       });
       return total;
+    },
+
+    addTaxes: function() {
+      return (this.cartTotal * 10) / 100;
     }
   },
   filters: {
