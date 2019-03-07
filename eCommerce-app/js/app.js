@@ -56,16 +56,32 @@ new Vue({
       }
     ]
   },
+
   methods: {
     addProductToCart: function(product) {
-      this.cart.items.push({
-        product: product,
-        quantity: 1
-      });
+      var cartItem = this.getCartItem(product);
 
+      if (cartItem != null) {
+        cartItem.quantity++;
+      } else {
+        this.cart.items.push({
+          product: product,
+          quantity: 1
+        });
+      }
       product.inStock--;
+    },
+
+    getCartItem: function(product) {
+      for (var i = 0; i < this.cart.items.length; i++) {
+        if (this.cart.items[i].product.id === product.id) {
+          return this.cart.items[i];
+        }
+      }
+      return null;
     }
   },
+
   computed: {
     cartTotal: function() {
       var total = 0;
