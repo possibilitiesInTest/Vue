@@ -17,8 +17,22 @@ import Inbox from "./Inbox.vue";
 import Sent from "./Sent.vue";
 import Trash from "./Trash.vue";
 import ViewMessage from "./ViewMessage.vue";
+import { eventBus } from "./main.js";
 
 export default {
+  created() {
+    eventBus.$on("changeView", data => {
+      let temp = [
+        {
+          tag: data.tag,
+          title: data.title
+        }
+      ];
+
+      this.history = temp.concat(this.history.splice(0));
+    });
+  },
+
   data() {
     return {
       history: [
