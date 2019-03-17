@@ -12,7 +12,7 @@
     <div>
       <ul class="inbox-nav">
         <li :class="{ active: activeView == 'app-inbox'}">
-          <a href="#" @click.prevent="navigate('app-index', 'Inbox')">
+          <a href="#" @click.prevent="navigate('app-inbox', 'Inbox')">
             <i class="fa fa-inbox"></i>Inbox
             <span class="label label-danger pull-right">?</span>
           </a>
@@ -55,7 +55,7 @@ export default {
   },
   data() {
     return {
-      activeView: data.tag
+      activeView: "app-inbox"
     };
   },
   methods: {
