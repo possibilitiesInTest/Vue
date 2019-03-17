@@ -12,7 +12,7 @@
     <ul class="inbox-nav">
       <li class="active">
         <a href="#">
-          <i class="fa fa-inbox"></i>Sent
+          <i class="fa fa-inbox"></i>Inbox
           <span class="label label-danger pull-right">?</span>
         </a>
       </li>
@@ -26,14 +26,14 @@
 
       <li>
         <a href="#">
-          <i class="fa fa-bookmark-o"></i>Sent
+          <i class="fa fa-bookmark-o"></i>Important
           <span class="label label-warning pull-right">?</span>
         </a>
       </li>
 
       <li>
         <a href="#">
-          <i class="fa fa-trash-o"></i>Sent
+          <i class="fa fa-trash-o"></i>Trash
           <span class="label label-default pull-right">?</span>
         </a>
       </li>
