@@ -54,7 +54,9 @@ export default {
   },
   computed: {
     currentView() {
-      return this.history[0];
+      let current = this.history[0];
+      current.data.messages = this.messages;
+      return current;
     }
   },
   components: {
