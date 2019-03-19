@@ -88,8 +88,8 @@ export default {
     importantMessages() {
       return this.messages.filter(function(message) {
         return (
-          message.type == "outgoing" &&
-          !message.isImportant === true &&
+          message.type == "incoming" &&
+          message.isImportant === true &&
           !message.isDeleted
         );
       });
