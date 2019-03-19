@@ -5,7 +5,7 @@
     </div>
 
     <keep-alive>
-      <component :is="currentView.tag"></component>
+      <component :is="currentView.tag" :data="currentView.data"></component>
     </keep-alive>
   </aside>
 </template>
@@ -44,7 +44,10 @@ export default {
       history: [
         {
           tag: "app-inbox",
-          title: "Inbox"
+          title: "Inbox",
+          data: {
+            messages: null
+          }
         }
       ]
     };
