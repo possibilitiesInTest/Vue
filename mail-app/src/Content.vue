@@ -31,7 +31,7 @@ export default {
       let temp = [
         {
           tag: data.tag,
-          title: data.title
+          title: data.title,
           data: data.data || {}
         }
       ];

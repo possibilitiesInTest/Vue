@@ -4,5 +4,19 @@
 
 
 <script>
-export default {};
+export default {
+  props: {
+    data: {
+      type: Object,
+      required: true
+    }
+  },
+  computed: {
+    incomingMessages() {
+      return this.data.messages.filter(function(message) {
+        return message.type == "incoming" && !message.isDeleted;
+      });
+    }
+  }
+};
 </script>
