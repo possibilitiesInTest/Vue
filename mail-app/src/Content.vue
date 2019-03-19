@@ -32,6 +32,7 @@ export default {
         {
           tag: data.tag,
           title: data.title
+          data: data.data || {}
         }
       ];
 
