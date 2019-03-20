@@ -3,6 +3,7 @@
     <tbody>
       <tr
         v-for="message in messages"
+        @click="openMessage(message)"
         :class="{ unread: typeof message.isRead !== 'undefined' && !message.isRead }"
       >
         <td>
@@ -32,11 +33,22 @@
 
 
 <script>
+import { eventBus } from "./main.js";
+
 export default {
   props: {
     messages: {
       type: Array,
       required: true
+    }
+  },
+  methods: {
+    openMessage() {
+      eventBus.$emit("changeView", {
+        tag: "app-view-message",
+        title: message.subject,
+        data: { message: message }
+      });
     }
   }
 };
