@@ -1,8 +1,22 @@
 <template>
-  <h1>Important</h1>
+  <div class="inbox-body">
+    <app-messages></app-messages>
+  </div>
 </template>
 
 
 <script>
-export default {};
+import Messages from "./messages.vue";
+
+export default {
+  props: {
+    data: {
+      type: Object,
+      required: true
+    }
+  },
+  components: {
+    appMessages: Messages
+  }
+};
 </script>
