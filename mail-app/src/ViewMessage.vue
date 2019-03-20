@@ -6,7 +6,7 @@
     </p>
     <p>
       <strong>From:</strong>
-      {{ data.message.from.name }} <{{ data.message.from.email }}>
+      {{ data.message.from.name }} < {{ data.message.from.email }}>
     </p>
     <hr>
 
@@ -32,6 +32,11 @@ export default {
   props: {
     data: Object,
     required: true
+  },
+  activated() {
+    if (typeof this.data.message.isRead !== "undefined") {
+      this.data.message.isRead = true;
+    }
   },
   filters: {
     formatBytes(bytes) {

@@ -21,7 +21,7 @@ export default {
     }
   },
   components: {
-    appMessages: messages
+    appMessages: Messages
   }
 };
 </script>
