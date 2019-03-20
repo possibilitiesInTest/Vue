@@ -1,5 +1,11 @@
 <template>
   <div class="inbox-body">
+    <div class="mail-option">
+      <button class="btn btn-primary" @click="navBack">
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp; Back
+      </button>
+    </div>
+
     <p>
       <strong>Date:</strong>
       {{ data.message.date.fromNow() }}
@@ -16,10 +22,10 @@
       <h4>Attachments</h4>
 
       <ul>
-        <li v-for="attachement in data.message.attachements">
+        <li v-for="attachment in data.message.attachments">
           <i class="fa fa-paperclip"></i>
-          {{ attachement.fileName }}
-          {{ attachement.size | formalBytes }}
+          {{ attachment.fileName }}
+          {{ attachment.size | formalBytes }}
         </li>
       </ul>
     </div>
@@ -28,6 +34,8 @@
 
 
 <script>
+import { eventBus } from "./main.js";
+
 export default {
   props: {
     data: Object,
@@ -36,6 +44,16 @@ export default {
   activated() {
     if (typeof this.data.message.isRead !== "undefined") {
       this.data.message.isRead = true;
+    }
+  },
+  methods: {
+    navBack() {
+      let previousView = this.$parent.previousView;
+      eventBus.$emit("changeView", {
+        tag: previousView.tag,
+        title: previousView.title,
+        data: previousView.data
+      });
     }
   },
   filters: {

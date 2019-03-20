@@ -43,11 +43,13 @@ export default {
     }
   },
   methods: {
-    openMessage() {
+    openMessage(message) {
       eventBus.$emit("changeView", {
         tag: "app-view-message",
         title: message.subject,
-        data: { message: message }
+        data: {
+          message: message
+        }
       });
     }
   }

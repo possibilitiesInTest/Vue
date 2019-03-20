@@ -26,20 +26,6 @@ export default {
       required: true
     }
   },
-  created() {
-    eventBus.$on("changeView", data => {
-      let temp = [
-        {
-          tag: data.tag,
-          title: data.title,
-          data: data.data || {}
-        }
-      ];
-
-      this.history = temp.concat(this.history.splice(0));
-    });
-  },
-
   data() {
     return {
       history: [
@@ -53,11 +39,27 @@ export default {
       ]
     };
   },
+  created() {
+    eventBus.$on("changeView", data => {
+      let temp = [
+        {
+          tag: data.tag,
+          title: data.title,
+          data: data.data || {}
+        }
+      ];
+
+      this.history = temp.concat(this.history.splice(0));
+    });
+  },
   computed: {
     currentView() {
       let current = this.history[0];
       current.data.messages = this.messages;
       return current;
+    },
+    previousView() {
+      return typeof this.history[1] !== "undefined" ? this.history[1] : null;
     }
   },
   components: {
