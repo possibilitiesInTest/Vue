@@ -1,6 +1,6 @@
 <template>
   <div class="inbox-body">
-    <app-messages :messages="messages"></app-messages>
+    <app-messages :messages="sentMessages"></app-messages>
   </div>
 </template>
 
