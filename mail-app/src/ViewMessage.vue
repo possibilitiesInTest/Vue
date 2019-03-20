@@ -19,7 +19,7 @@
         <li v-for="attachement in data.message.attachements">
           <i class="fa fa-paperclip"></i>
           {{ attachement.fileName }}
-          {{ attachement.size }}
+          {{ attachement.size | formalBytes }}
         </li>
       </ul>
     </div>
@@ -32,6 +32,19 @@ export default {
   props: {
     data: Object,
     required: true
+  },
+  filters: {
+    formatBytes(bytes) {
+      if (bytes == 0) {
+        return "0 Bytes";
+      }
+      let decimals = 2;
+      let k = 1000;
+      let dm = decimals + 1 || 3;
+      let sizes = ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
+      let i = Math.floor(Math.log(bytes) / Math.log(k));
+      return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + " " + sizes[i];
+    }
   }
 };
 </script>
