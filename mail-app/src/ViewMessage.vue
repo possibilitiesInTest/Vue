@@ -52,7 +52,7 @@
         <li v-for="attachment in data.message.attachments">
           <i class="fa fa-paperclip"></i>
           {{ attachment.fileName }}
-          {{ attachment.size | formalBytes }}
+          {{ attachment.size | formatBytes }}
         </li>
       </ul>
     </div>
