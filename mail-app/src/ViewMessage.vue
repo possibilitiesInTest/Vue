@@ -7,7 +7,7 @@
       
       <button
         class="btn btn-danger"
-        @click="data.message.isDeleted = 'true'"
+        @click="data.message.isDeleted = true"
         :disabled="data.message.isDeleted"
       >
         <i class="fa fa-trash-o"></i>
