@@ -21,7 +21,7 @@ export default {
     };
   },
   created() {
-    eveentBus.$on("refreshMessages", () => {
+    eventBus.$on("refreshMessages", () => {
       let randomIndex = Math.floor(Math.random() * randomMessages.length);
       let temp = [randomMessages[randomIndex]];
       this.messages = temp.concat(this.messages.slice(0));
