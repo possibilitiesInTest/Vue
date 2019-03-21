@@ -26,6 +26,10 @@ export default {
       let temp = [randomMessages[randomIndex]];
       this.messages = temp.concat(this.messages.slice(0));
     });
+  eventBus.$on('sentMessage',(data) => {
+    let temp =[data.message];
+    this.messages = temp.concat(this.message.slice(0));
+  });
   },
   components: {
     "app-sidebar": Sidebar,

@@ -11,7 +11,7 @@
                     </div>
 
                     <div class="modal-body">
-                        <form role="form" class="form-horizontal">
+                        <form  @submit.prevent="sendMessage" role="form" class="form-horizontal">
                             <div class="form-group">
                                 <label class="col-lg-2 control-label" for="subject">Subject</label>
                                 <div class="col-lg-10">
@@ -40,6 +40,9 @@
 </template>
 
 <script>
+import moment from 'moment';
+import { eventBus } from './main.js';
+
 export default {
     data() {
         return {
@@ -47,6 +50,24 @@ export default {
                 subject: '',
                 content: ''
             }
+        }
+    },
+    methods: {
+        sendMessage() {
+            eventBus.$emit('sentMessage', {
+                message: {
+                    subject: this.message.subject,
+                    content: this.message.content,
+                    isDeleted: false,
+                    type: 'outgoing',
+                    date: moment(),
+                    from: {
+                        name: 'Bo Andersen',
+                        email: 'info@codingexplained.com'
+                    },
+                    attachments: [] 
+                }
+            });
         }
     }
     
