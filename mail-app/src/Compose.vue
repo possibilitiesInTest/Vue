@@ -15,14 +15,14 @@
                             <div class="form-group">
                                 <label class="col-lg-2 control-label" for="subject">Subject</label>
                                 <div class="col-lg-10">
-                                    <input type="text" id="subject" class="form-control">
+                                    <input v-model="message.subject" type="text" id="subject" class="form-control">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-lg-2 control-label" for="message">Message</label>
                                 <div class="col-lg-10">
-                                    <textarea rows="10" cols="30" class="form-control" id="message"></textarea>
+                                    <textarea v-model="message.content" rows="10" cols="30" class="form-control" id="message"></textarea>
                                 </div>
                             </div>
 
@@ -41,6 +41,14 @@
 
 <script>
 export default {
+    data() {
+        return {
+            message: {
+                subject: '',
+                content: ''
+            }
+        }
+    }
     
 }
 </script>
