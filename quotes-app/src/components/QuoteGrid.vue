@@ -1,10 +1,10 @@
 <template>
-  <div class="row">.</div>
+  <div class="row"></div>
 </template>
 
 <script>
 export default {
-  propts: ["quotes"]
+  props: ["quotes"]
 };
 </script>
 
