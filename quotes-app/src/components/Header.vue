@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <div class="col-sm-12">
-      <h3>Quotes Added</h3>
+      <h3 class="text-center">Quotes Added</h3>
       <div class="progress">
         <div
           class="progress-bar"
