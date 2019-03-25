@@ -7,29 +7,29 @@
 
           <div class="form-group">
             <label for="name.first">First</label>
-            <input type="text" id="name.first" class="form-control">
+            <input v-model="user.name.first" type="text" id="name.first" class="form-control">
             <label for="name.last">Last</label>
-            <input type="text" id="name.last" class="form-control">
+            <input v-model="user.name.last" type="text" id="name.last" class="form-control">
           </div>
 
           <!-- eMail -->
           <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" id="userEmail" class="form-control">
+            <input v-model="user.email" type="email" id="userEmail" class="form-control">
           </div>
 
           <!-- Password -->
           <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" id="userPassword" class="form-control">
+            <input v-model="user.password" type="password" id="userPassword" class="form-control">
           </div>
 
           <!-- Store Data? Yes/No -->
           <div class="form-group">
             <label for="yes">Yes</label>
-            <input type="checkbox" id="yes" value="yes">
+            <input v-model="user.checkbox" type="checkbox" id="yes" value="yes">
             <label for="no">No</label>
-            <input type="checkbox" id="no" value="no">
+            <input v-model="user.checkbox" type="checkbox" id="no" value="no">
           </div>
 
           <!-- Exercise 1 -->
@@ -56,12 +56,12 @@
           <div class="panel-heading">
             <h4>Your Data</h4>
           </div>
-          <div class="panel-body">
-            <p v-model="name">Full Name: {{ name.first }} {{ name.last }}</p>
-            <p v-model="email">Mail: {{ email }} </p>
-            <p v-model="password">Password: {{ password }}</p>
-            <p v-model="checkbox">Store in Database?:  {{ checkbox }}</p>
-          </div>
+          <div :user="user" class="panel-body">
+              <p >Full Name: {{ user.name.first }} {{ user.name.last }}</p>
+            <p >Mail: {{ user.email }} </p>
+            <p >Password: {{ user.password }}</p>
+            <p >Store in Database?:  {{ user.checkbox }}</p>
+            </div>
         </div>
       </div>
     </div>
@@ -72,14 +72,16 @@
 export default {
   data() {
     return {
-      name: {
-        first: '',
-        last: ''
-      },
+      user: {
+        name: {
+          first: '',
+          last: ''
+        },
       email: '',
       password: '',
       checkbox: ''
     }
+      }
   }
 };
 </script>
