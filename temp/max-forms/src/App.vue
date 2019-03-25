@@ -6,10 +6,10 @@
           <!-- Full Name (First Name + Last Name) -->
 
           <div class="form-group">
-            <label for="firstName">First</label>
-            <input type="text" id="firstName" class="form-control">
-            <label for="lastName">Last</label>
-            <input type="text" id="lastName" class="form-control">
+            <label for="name.first">First</label>
+            <input type="text" id="name.first" class="form-control">
+            <label for="name.last">Last</label>
+            <input type="text" id="name.last" class="form-control">
           </div>
 
           <!-- eMail -->
@@ -57,10 +57,10 @@
             <h4>Your Data</h4>
           </div>
           <div class="panel-body">
-            <p>Full Name:</p>
-            <p>Mail:</p>
-            <p>Password:</p>
-            <p>Store in Database?:</p>
+            <p v-model="name">Full Name: {{ name.first }} {{ name.last }}</p>
+            <p v-model="email">Mail: {{ email }} </p>
+            <p v-model="password">Password: {{ password }}</p>
+            <p v-model="checkbox">Store in Database?:  {{ checkbox }}</p>
           </div>
         </div>
       </div>
@@ -69,7 +69,19 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      name: {
+        first: '',
+        last: ''
+      },
+      email: '',
+      password: '',
+      checkbox: ''
+    }
+  }
+};
 </script>
 
 <style>
