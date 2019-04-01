@@ -15,32 +15,36 @@
         <!-- Like this: "Test" => Gets Filtered to => "Test (4)" -->
         <hr>
         <h5>Exercise 2</h5>
-        <p>{{ sample2 | appendLength }}</p>
+        <p>{{ message | appendLength }}</p>
         <!-- Exercise 3 -->
         <!-- Do the same as in Exercises 1 & 2, now with Computed Properties -->
         <hr>
         <h5>Exercise 3</h5>
-        <p>{{ sample }}</p>
-        <button class="btn btn-primary" @click="reverseText">reverseText</button>
-        <hr>
-        <p @click="addLength">{{ sample }}</p>
+        <p>{{ reverseText }}</p>
+        <p>{{ addLength }}</p>
         <!-- Exercise 4 -->
         <!-- Share the Computed Property rebuilding Exercise 2 via a Mixin -->
+        <hr>
+        <h5>Ex #4</h5>
+        <p>{{ mixinLength }}</p>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { filtCompMixin } from "./filtCompMixin";
+
 export default {
   data() {
     return {
       sample: "Sample text forwards.",
-      sample2: "Short"
+      message: "Short",
+      sampleList: ["apple", "orange", "pear"]
     };
   },
   filters: {
-    toBackwards: value => {
+    toBackwards: function(value) {
       return value
         .split("")
         .reverse()
@@ -48,17 +52,18 @@ export default {
     }
   },
   computed: {
-    reverseText: function(value) {
-      return value
+    reverseText: function() {
+      return this.message
         .toString()
         .split("")
         .reverse()
         .join("");
+    },
+    addLength: function() {
+      return this.message + " " + "(" + this.message.length + ")";
     }
   },
-  addLength: value => {
-    return value + " " + "(" + value.length + ")";
-  }
+  mixins: [filtCompMixin]
 };
 </script>
 
