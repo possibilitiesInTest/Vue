@@ -71,22 +71,61 @@
 
           <div style="width: 300px; height: 100px; background-color: lightgreen" v-if="load"></div>
         </transition>
+        <hr>
+        <button class="btn btn-grey" @click="switchAlert">Toggle Alert</button>
+        <br>
+        <br>
+        <transition name="fade" mode="out-in">
+          <component :is="selectedComponent"></component>
+        </transition>
+        <hr>
+        <br>
+        <button class="btn btn-warning" @click="addItem">Add Number</button>
+        <br>
+        <br>
+
+        <transition-group name="slide">
+          <li
+            class="list-group-item"
+            v-for="(number, index) in numbers"
+            @click="removeItem(index)"
+            style="cursor: pointer"
+            :key="number"
+          >{{ number }}</li>
+        </transition-group>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import DangerAlert from "./DangerAlert.vue";
+import SuccessAlert from "./SuccessAlert.vue";
+
 export default {
   data() {
     return {
       show: false,
       load: true,
       alertAnimation: "fade",
-      elementWidth: 100
+      elementWidth: 100,
+      selectedComponent: "app-success-alert",
+      numbers: [1, 2, 3, 4, 5]
     };
   },
   methods: {
+    addItem: function() {
+      const pos = Math.floor(Math.random() * this.numbers.length);
+      this.numbers.splice(pos, 0, this.numbers.length + 1);
+    },
+    removeItem: function(index) {
+      this.numbers.splice(index, 1);
+    },
+    switchAlert: function() {
+      this.selectedComponent == "app-success-alert"
+        ? (this.selectedComponent = "app-danger-alert")
+        : (this.selectedComponent = "app-success-alert");
+    },
     beforeEnter(el) {
       console.log("beforeEnter");
       this.elementWidth = 100;
@@ -133,6 +172,10 @@ export default {
     leaveCancelled(el) {
       console.log("leaveCancelled");
     }
+  },
+  components: {
+    appDangerAlert: DangerAlert,
+    appSuccessAlert: SuccessAlert
   }
 };
 </script>
@@ -174,6 +217,11 @@ export default {
   animation: slide-out 1s ease-out forwards;
   transition: opacity 3s;
   opacity: 0;
+  position: absolute;
+}
+
+.slide-move {
+  transition: transform 1s;
 }
 
 @keyframes slide-in {
