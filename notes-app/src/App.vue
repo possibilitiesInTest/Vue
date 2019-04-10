@@ -14,6 +14,17 @@
       </div>
       <button class="btn btn-primary" @click="addNote">Add Note</button>
     </div>
+    <div class="col-sm-12">
+      <div class="col-sm-4 note" v-for="note in notes">
+        <div class="card">
+          <div class="card-block">
+            <h4 class="card-title">{{ note.title}}</h4>
+            <h6 class="card-subtitle mb-2 text-muted">{{ note.date }}</h6>
+            <p class="card-text">{{ note.text }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
