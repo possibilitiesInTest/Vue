@@ -2,7 +2,9 @@
   <div id="app">
     <h3>{{ title }}</h3>
     <button class="btn btn-primary" @click="fetchCharacter">Fetch Character</button>
-    <app-character :id="1"></app-character>
+    <div class="col-md-12">
+      <app-character v-for="id in initial_ids" :id="id"></app-character>
+    </div>
   </div>
 </template>
 
@@ -13,7 +15,8 @@ export default {
   name: "app",
   data() {
     return {
-      title: "Generate Your Team"
+      title: "Generate Your Team",
+      initial_ids: [1, 13, 14]
     };
   },
   components: {
