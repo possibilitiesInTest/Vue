@@ -21,6 +21,7 @@
             <h4 class="card-title">{{ note.title}}</h4>
             <h6 class="card-subtitle mb-2 text-muted">{{ note.date }}</h6>
             <p class="card-text">{{ note.text }}</p>
+          <button class="close" @click="removeNote(index)">&times;</button>
           </div>
         </div>
       </div>
@@ -54,6 +55,9 @@ export default {
           title,
           date: new Date(Date.now()).toLocaleString()
         })
+      },
+      removeNote(index){
+        this.notes.splice(index, 1)
       }
     }
 }
