@@ -2,7 +2,7 @@
   <div id="app">
     <h3>{{ title }}</h3>
     <button class="btn btn-primary" @click="fetchCharacter">Fetch Character</button>
-    <app-character></app-character>
+    <app-character :id="1"></app-character>
   </div>
 </template>
 
