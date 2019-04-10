@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <h3>{{ title }}</h3>
-    <button class="btn btn-primary" @click="fetchCharacter">Fetch Character</button>
-    <div class="col-md-12">
+    <!-- <button class="btn btn-primary" @click="fetchCharacter">Fetch Character</button>
+    <div class="col-md-12"> -->
       <app-character v-for="(id, index) in initial_ids" :id="id" :key="index"></app-character>
     </div>
   </div>
