@@ -12,25 +12,40 @@
           <textarea class="form-control" v-model="note.text"></textarea>
         </div>
       </div>
+      <button class="btn btn-primary" @click="addNote">Add Note</button>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'app',
-  data () {
-    return {
-      title: 'Note Master',
+    data: function() {
+      return {
+      title: 'Notemaster',
       note: {
         title: '',
         text: ''
+      },
+      notes: [
+        {
+          title: 'Visited Hawaii',
+          text: 'I loved the beaches and delicious fresh coconuts',
+          date: new Date(Date.now()).toLocaleString()
+        }
+      ],
+      }
+    },
+    methods: {
+      addNote() {
+        let { text, title } = this.note
+        this.notes.push({
+          text,
+          title,
+          date: new Date(Date.now()).toLocaleString()
+        })
       }
     }
-  }
 }
+
+
 </script>
-
-<style>
-
-</style>
