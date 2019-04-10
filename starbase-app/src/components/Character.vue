@@ -1,5 +1,15 @@
 <template>
-  <div @click="switchCharacter">{{character}}</div>
+  <div class="col-md-4" @click="switchCharacter">
+    <div class="character-card">
+      <card-block>
+        <div class="card-title"></div>
+        <div class="card-text">Height:</div>
+        <div class="card-text">Mass:</div>
+        <div class="card-text">Hair Color:</div>
+        <div class="card-text">Eye Color:</div>
+      </card-block>
+    </div>
+  </div>
 </template>
 
 <script>
