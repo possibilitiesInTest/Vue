@@ -5,12 +5,11 @@
       <div class="form-group">
         <div class="form-group">
           <label>Note Tilte</label>
-          <input type="text">
+          <input class="form-control" type="text" v-model="note.title">
         </div>
         <div class="form-group">
           <label>Note Text</label>
-          <textarea class="form-control">
-          </textarea>
+          <textarea class="form-control" v-model="note.text"></textarea>
         </div>
       </div>
     </div>
@@ -22,8 +21,11 @@ export default {
   name: 'app',
   data () {
     return {
-      title: 'Note Master'
-      
+      title: 'Note Master',
+      note: {
+        title: '',
+        text: ''
+      }
     }
   }
 }
