@@ -4,5 +4,9 @@ export const mutations = {
   [types.INIT_JOKES](state, payload) {
     state.jokes.push(...payload);
     // export payload to jokes array
-  }
+  },
+
+  [types.ADD_JOKE] (state, payload) {
+    state.jokes.push(payload)
+  },
 };

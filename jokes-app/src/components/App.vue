@@ -6,6 +6,9 @@
     <br>
        <button class="btn btn-primary" @click="initJokes">Add Ten Random Jokes</button>
  <br>
+ <br>
+       <button class="btn btn-primary" @click="addJoke">Add A Joke</button>
+ 
     <br>
     <div class="col-md-12"></div>
     <hr>
@@ -30,7 +33,8 @@ import Joke from './Joke.vue'
 
 export default {
   methods: mapActions([
-    'initJokes'
+    'initJokes',
+    'addJoke'
   ]),
   components: {
     Joke
