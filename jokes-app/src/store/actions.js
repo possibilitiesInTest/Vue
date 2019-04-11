@@ -18,3 +18,7 @@ export const addJoke = ({commit}) => {
     .then(json => commit(types.ADD_JOKE, json))
     // fetches 1 joke from the api
 }
+
+export const removeJoke = ({commit}, index) => {
+    commit(types.REMOVE_JOKE, index)
+}
