@@ -1,14 +1,17 @@
 <template>
   <div>
-    <h4>Add Event</h4>
-    <div class="form">
+    <h4>
+      Add Event
+      <input type="checkbox" v-model="showForm">
+    </h4>
+    <div class="form" v-if="showForm">
       <div class="form-group">
         <label>Title</label>
         <input type="text" class="form-control" v-model="event.title">
       </div>
       <div class="form-group">
         <label>Description</label>
-        <input type="text" class="form-control" v-nodel="event.description">
+        <input type="text" class="form-control" v-model="event.description">
       </div>
       <div class="form-group">
         <label>Date</label>
@@ -20,13 +23,13 @@
         <input type="text" class="form-control" v-model="event.location">
       </div>
 
-      <button class="btn-sm btn-primary" @click="addEvent"></button>
+      <button class="btn-sm btn-primary" @click="addEvent">Add Event</button>
     </div>
   </div>
 </template>
 
 <script>
-import { eventsref } from "../firebaseApp";
+import { eventsRef } from "../firebaseApp";
 
 export default {
   data() {
@@ -37,7 +40,8 @@ export default {
         date: "",
         location: "",
         email: ""
-      }
+      },
+      showForm: false
     };
   },
   methods: {
