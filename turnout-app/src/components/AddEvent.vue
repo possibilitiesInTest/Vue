@@ -47,7 +47,9 @@ export default {
   methods: {
     addEvent() {
       this.event.email = this.$store.state.user.email;
+      // sets event.email to email of logged in user stored in state.
       eventsRef.push(this.event);
+      // pushes this.event details to eventsRef
     }
   }
 };

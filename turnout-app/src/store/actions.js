@@ -10,4 +10,5 @@ export const signOut = ({ commit }) => {
 
 export const setEvents = ({ commit }, events_payload) => {
   commit(types.SET_EVENTS, events_payload);
+  // commits SET_EVENTS passing in events_payload as the value
 };

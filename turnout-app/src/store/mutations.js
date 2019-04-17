@@ -9,7 +9,8 @@ export const mutations = {
     state.user = {};
   },
 
-  [types.SET_EVENTS](state, evebts_payload) {
+  [types.SET_EVENTS](state, events_payload) {
     state.events = events_payload;
+    // sets state.events to events_payloads
   }
 };

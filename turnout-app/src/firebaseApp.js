@@ -14,4 +14,4 @@ export const eventsRef = firebaseApp
   .database()
   .ref()
   .child("events");
-// firebase will listen for any events and stores them in db
+// firebase will listen for any changes with 'events': track and update

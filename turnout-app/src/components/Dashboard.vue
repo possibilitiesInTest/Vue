@@ -29,9 +29,15 @@ export default {
       let events = [];
       snap.forEach(event => {
         events.push(event.val());
+        // pushes events from snap to events array
       });
+      
       // console.log("events", events);
       this.$store.dispatch("setEvents", events);
+
+      // keeps real time listener alive
+      // throughout life-cycle of dashboard component
+      // passing events to store
     });
   }
 };
