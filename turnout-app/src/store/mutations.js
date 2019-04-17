@@ -7,5 +7,9 @@ export const mutations = {
 
   [types.SIGN_OUT](state) {
     state.user = {};
+  },
+
+  [types.SET_EVENTS](state, evebts_payload) {
+    state.events = events_payload;
   }
 };
