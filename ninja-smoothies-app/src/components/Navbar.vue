@@ -7,7 +7,7 @@
         </router-link>
         <a href class="btn-floating btn-large halfway-fab pink">
           <router-link to>
-            <i class="material-icons">Add</i>
+            <i class="material-icons">add</i>
           </router-link>
         </a>
       </div>
