@@ -10,8 +10,8 @@ var config = {
   storageBucket: "ninja-smoothies-a2361.appspot.com",
   messagingSenderId: "882393146420"
 };
+
 const firebaseApp = firebase.initializeApp(config);
-firebaseApp.firestore().settings({ timestampsInSnapshots: true });
 
 // Export firestore db
 export default firebaseApp.firestore();
