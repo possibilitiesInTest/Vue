@@ -57,7 +57,7 @@ export default {
           remove: /[$*_+~.()'"!\-:@']/g,
           lower: true
         })
-        db.collection('smoothie').add({
+        db.collection('smoothies').add({
           title: this.title,
           ingredients: this.ingredients,
           slug: this.slug
