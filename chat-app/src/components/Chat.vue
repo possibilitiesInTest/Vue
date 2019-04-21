@@ -6,12 +6,13 @@
                 <ul class="messages">
                     <li>
                         <span class="teal-text">Name</span>
-                        <spane class="grey-text text-darken-3">message</spane>
+                        <span class="grey-text text-darken-3">message</span>
                         <span class="grey-text time">time</span>
                     </li>
                 </ul>
             </div>
             <div class="card-action">
+                <NewMessage :name="name"/>
                 <input type="text">
             </div>
         </div>
@@ -19,9 +20,14 @@
 </template>
 
 <script>
+import NewMessage from '@/components/NewMessage'
+
 export default {
     name: 'Chat',
     props: ['name'],
+    components: {
+        NewMessage
+    },
     data() {
         return {
 
