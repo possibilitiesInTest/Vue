@@ -6,7 +6,7 @@
           <form @submit.prevent="enterChat">
             <label for="name">Enter you name:</label>
             <input type="text" name="name" v-model="name">
-            <p v-if="feedback">{{ feedback }}</p>
+            <p v-if="feedback" class="red-text">{{ feedback }}</p>
             <button class="btn teal">Enter Chat</button>
           </form>
         </div>
