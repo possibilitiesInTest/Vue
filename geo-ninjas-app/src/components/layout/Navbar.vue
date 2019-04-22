@@ -5,7 +5,7 @@
         <a href class="brand-logo left">GeoNinjas!</a>
         <ul class="right">
           <li>
-            <router-link :to="{name: Signup}">Sign Up</router-link>
+            <router-link :to="{name: 'Signup'}">Sign Up</router-link>
           </li>
           <li>
             <a href>Login</a>

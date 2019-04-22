@@ -60,13 +60,12 @@ export default {
               .auth()
               .createUserWithEmailAndPassword(this.email, this.password)
               .catch(err => {
-                console.log(err);
+                console.log(err.message);
                 this.feedback = err.message;
               });
-            this.feedback = "This alias is free to use";
           }
         });
-        console.log(this.slug);
+        // console.log(this.slug);
       } else {
         this.feedback = "You must enter all fields";
       }
