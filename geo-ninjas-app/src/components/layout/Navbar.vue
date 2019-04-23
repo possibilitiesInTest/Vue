@@ -7,8 +7,13 @@
           <li>
             <router-link :to="{name: 'Signup'}">Sign Up</router-link>
           </li>
+
           <li>
             <a href>Login</a>
+          </li>
+
+          <li>
+            <a @click="logout">Logout</a>
           </li>
         </ul>
       </div>
@@ -17,10 +22,22 @@
 </template>
 
 <script>
+import firebase from "firebase";
+
 export default {
   name: "Navbar",
   data() {
     return {};
+  },
+  methods: {
+    logout() {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          this.$router.push({ name: "Signup" });
+        });
+    }
   }
 };
 </script>
