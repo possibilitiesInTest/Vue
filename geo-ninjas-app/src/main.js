@@ -7,6 +7,8 @@ import firebase from "firebase";
 
 Vue.config.productionTip = false;
 
+let app = null;
+
 // wait for firebase auth to init before creating the app
 firebase.auth().onAuthStateChanged(() => {
   // init app if not laready created
