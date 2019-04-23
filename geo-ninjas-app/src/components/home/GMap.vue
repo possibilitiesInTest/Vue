@@ -28,7 +28,27 @@ export default {
     }
   },
   mounted() {
-    this.renderMap();
+    // get user location
+    if (navigator.geolocation) {
+      // if geolocation exists
+      navigator.geolocation.getCurrentPosition(
+        pos => {
+          // render map with current position.lat && long
+          this.lat = pos.coords.latitude;
+          this.lng = this.pos.coords.longitude;
+          this.renderMap();
+        },
+        err => {
+          console.log(err);
+          this.renderMap();
+        },
+        { maximumAge: 6000, timeout: 30000 }
+        // checks for cached geolocation of the user, if not found in 3 seconds, then fail this operation, and render the default
+      );
+    } else {
+      // position centre by default values
+      this.renderMap();
+    }
     console.log(firebase.auth().currentUser);
     // setTimeout(() => {
     //   console.log(firebase.auth().currentUser);
