@@ -46,6 +46,7 @@ export default {
   methods: {
     signUp() {
       if (this.alias && this.email && this.password) {
+        this.feedback = null;
         this.slug = slugify(this.alias, {
           replacement: "-",
           remove: /[$*_+~.()'"!=:@]/g,
@@ -59,6 +60,16 @@ export default {
             firebase
               .auth()
               .createUserWithEmailAndPassword(this.email, this.password)
+              .then(cred => {
+                ref.set({
+                  alias: this.alias,
+                  geolocation: null,
+                  user_id: cred.user.uid
+                });
+              })
+              .then(() => {
+                this.$router.push({ name: "GMap" });
+              })
               .catch(err => {
                 console.log(err.message);
                 this.feedback = err.message;
