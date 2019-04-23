@@ -9,7 +9,7 @@
       </div>
 
       <div class="field">
-        <label for="password">Email</label>
+        <label for="password">Password</label>
         <input type="password" name="password" v-model="password">
       </div>
 
