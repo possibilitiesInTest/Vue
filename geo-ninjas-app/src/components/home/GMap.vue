@@ -32,8 +32,9 @@ export default {
     // get current user
     let user = firebase.auth().currentUser;
 
-    // get user location
-    if (navigator.geolocation) {
+    if (!user) {
+      this.renderMap();
+    } else if (navigator.geolocation) {
       // if geolocation exists
       navigator.geolocation.getCurrentPosition(
         pos => {
@@ -42,6 +43,7 @@ export default {
           this.lng = pos.coords.longitude;
 
           // find user record and then update the geolocation
+
           db.collection("users")
             .where("user_id", "==", user.uid)
             .get()
@@ -62,7 +64,7 @@ export default {
             });
         },
         err => {
-          console.log(err);
+          // console.log(err);
           this.renderMap();
         },
         { maximumAge: 6000, timeout: 30000 }
