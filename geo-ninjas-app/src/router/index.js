@@ -4,7 +4,6 @@ import GMap from "@/components/home/GMap";
 import Signup from "@/components/auth/Signup";
 import Login from "@/components/auth/Login";
 import firebase from "firebase";
-import { nextTick } from "q";
 
 Vue.use(Router);
 
@@ -15,7 +14,7 @@ const router = new Router({
       name: "GMap",
       component: GMap,
       meta: {
-        requireAuth: true
+        requiresAuth: true
       }
     },
     {
