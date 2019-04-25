@@ -32,9 +32,7 @@ export default {
     // get current user
     let user = firebase.auth().currentUser;
 
-    if (!user) {
-      this.renderMap();
-    } else if (navigator.geolocation) {
+    if (navigator.geolocation) {
       // if geolocation exists
       navigator.geolocation.getCurrentPosition(
         pos => {
